@@ -8,18 +8,27 @@
 
     <script type="module">
         async function fetchJSONFile() {
-        try {
-            const response = await fetch('reko.json');
-            const jsonData = await response.json();
-            return jsonData;
-        } catch (error) {
-            console.error('Error fetching JSON: ', error);
-        }
-        }
+      try {
+        const response = await fetch('reko.json');
+        const jsonData = await response.json();
+        return jsonData; // JSONデータを戻り値として返す
+      } catch (error) {
+        console.error('Error fetching JSON: ', error);
+        throw error; // エラーを再スロー
+      }
+    }
+    
+    
+    async function processData() {
+      try {
+        const jsonData = await fetchJSONFile();
+        console.log(jsonData); // 取得したJSONデータを利用する
+      } catch (error) {
+        console.error('Error processing JSON data: ', error);
+      }
+    }
 
-        const data = fetchJSONFile();
-        console.log(data);
-        console.log("変更後");
+processData(); // 関数の呼び出し
 
     </script>
 </body>
