@@ -11,13 +11,14 @@
         try {
             const response = await fetch('reko.json');
             const jsonData = await response.json();
-            console.log(jsonData);
+            return jsonData;
         } catch (error) {
             console.error('Error fetching JSON: ', error);
         }
         }
 
-        fetchJSONFile();
+        const data = fetchJSONFile();
+        console.log(data["memberList");
 
     </script>
 </body>
