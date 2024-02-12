@@ -1,1 +1,24 @@
-Hello
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>テスト</title>
+</head>
+<body>
+    <h1>テスト</h1>
+
+    <script type="module">
+        async function fetchJSONFile() {
+        try {
+            const response = await fetch('reko.json');
+            const jsonData = await response.json();
+            console.log(jsonData);
+        } catch (error) {
+            console.error('Error fetching JSON: ', error);
+        }
+        }
+
+        fetchJSONFile();
+
+    </script>
+</body>
+</html>
